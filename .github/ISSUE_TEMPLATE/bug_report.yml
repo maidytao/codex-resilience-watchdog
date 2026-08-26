@@ -1,0 +1,54 @@
+name: Bug report
+description: Report reproducible incorrect or unsafe behavior
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include prompts, credentials, session databases, or private task history.
+        Report security vulnerabilities privately through GitHub Security Advisories.
+  - type: input
+    id: version
+    attributes:
+      label: Watchdog version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Windows, Python, Codex Desktop, and Codex CLI versions
+      placeholder: Windows 11; Python 3.12; Codex Desktop ...; codex-cli ...
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Use synthetic or redacted identifiers only.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest safe reproduction.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed prompts, secrets, credentials, and private task data.
+          required: true
+        - label: This is not a private security vulnerability report.
+          required: true
+

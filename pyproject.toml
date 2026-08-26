@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-resilience-watchdog"
+version = "0.1.0"
+description = "Codex-only long-task monitoring and controlled recovery"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "maidytao" }]
+requires-python = ">=3.12"
+dependencies = []
+keywords = ["codex", "watchdog", "resilience", "automation", "circuit-breaker"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Win32 (MS Windows)",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.urls]
+Homepage = "https://github.com/maidytao/codex-resilience-watchdog"
+Repository = "https://github.com/maidytao/codex-resilience-watchdog"
+Issues = "https://github.com/maidytao/codex-resilience-watchdog/issues"
+Documentation = "https://github.com/maidytao/codex-resilience-watchdog#readme"
+
+[project.scripts]
+codex-resilience-watchdog = "codex_resilience_watchdog.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

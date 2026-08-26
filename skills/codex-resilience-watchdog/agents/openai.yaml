@@ -1,0 +1,5 @@
+interface:
+  display_name: "Codex Resilience Watchdog"
+  short_description: "Monitor and safely recover long Codex tasks"
+  default_prompt: "Use $codex-resilience-watchdog to monitor this long Codex task with bounded, evidence-based recovery."
+
