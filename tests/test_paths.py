@@ -13,18 +13,19 @@ class WatchdogPathsTest(TemporaryHomeTestCase):
         paths = WatchdogPaths.from_environment(
             {"CODEX_HOME": str(self.codex_home)}, self.profile
         )
+        expected_home = self.codex_home.resolve()
 
         self.assertEqual(
             paths.skill_dir,
-            self.codex_home / "skills" / "codex-resilience-watchdog",
+            expected_home / "skills" / "codex-resilience-watchdog",
         )
-        self.assertEqual(paths.data_dir, self.codex_home / "watchdog")
+        self.assertEqual(paths.data_dir, expected_home / "watchdog")
         self.assertEqual(paths.database, paths.data_dir / "resilience.db")
 
     def test_user_profile_is_used_when_codex_home_is_missing(self) -> None:
         paths = WatchdogPaths.from_environment({}, self.profile)
 
-        self.assertEqual(paths.codex_home, self.profile / ".codex")
+        self.assertEqual(paths.codex_home, (self.profile / ".codex").resolve())
 
     def test_assert_owned_accepts_skill_and_watchdog_descendants(self) -> None:
         paths = WatchdogPaths.from_environment(
